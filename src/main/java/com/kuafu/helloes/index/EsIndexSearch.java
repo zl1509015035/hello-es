@@ -1,5 +1,6 @@
-package com.kuafu.helloes;
+package com.kuafu.helloes.index;
 
+import com.kuafu.helloes.EsClient;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.client.indices.CreateIndexRequest;
