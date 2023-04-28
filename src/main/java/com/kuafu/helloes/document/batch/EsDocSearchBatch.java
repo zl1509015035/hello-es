@@ -8,6 +8,7 @@ import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
@@ -21,10 +22,16 @@ public class EsDocSearchBatch {
         RestHighLevelClient esClient = EsClient.getHighLevelClient();
         //插入数据
         SearchRequest request = new SearchRequest("user");
-        //构造查询条件 查询全部数据
-        SearchSourceBuilder query = new SearchSourceBuilder().query(QueryBuilders.matchAllQuery());
-        request.source(query);
+        //构造查询条件
+        SearchSourceBuilder queryBuilder = new SearchSourceBuilder();
 
+        //1.全量查询
+//        queryBuilder.query(QueryBuilders.matchAllQuery());
+
+        //2.条件查询
+        queryBuilder.query(QueryBuilders.termQuery("age",18));
+
+        request.source(queryBuilder);
         SearchResponse response = esClient.search(request, RequestOptions.DEFAULT);
 
         System.out.println(response);
@@ -38,8 +45,5 @@ public class EsDocSearchBatch {
     }
 
 
-    private static DeleteRequest initRequest(String id) {
-        return new DeleteRequest().id(id);
-    }
 
 }
