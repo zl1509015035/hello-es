@@ -1,4 +1,4 @@
-package com.kuafu.helloes.document;
+package com.kuafu.helloes.document.single;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kuafu.helloes.EsClient;

@@ -1,4 +1,4 @@
-package com.kuafu.helloes.document;
+package com.kuafu.helloes.document.single;
 
 import com.kuafu.helloes.EsClient;
 import org.elasticsearch.action.delete.DeleteRequest;
