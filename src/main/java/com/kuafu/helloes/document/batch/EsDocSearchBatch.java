@@ -23,15 +23,21 @@ public class EsDocSearchBatch {
         //插入数据
         SearchRequest request = new SearchRequest("user");
         //构造查询条件
-        SearchSourceBuilder queryBuilder = new SearchSourceBuilder();
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
 
         //1.全量查询
-//        queryBuilder.query(QueryBuilders.matchAllQuery());
+//        searchSourceBuilder.query(QueryBuilders.matchAllQuery());
 
         //2.条件查询
-        queryBuilder.query(QueryBuilders.termQuery("age",18));
+//        searchSourceBuilder.query(QueryBuilders.termQuery("age",18));
 
-        request.source(queryBuilder);
+        //3.分页查询
+        searchSourceBuilder.query(QueryBuilders.matchAllQuery());
+        searchSourceBuilder.from(0);
+        searchSourceBuilder.size(10);
+
+
+        request.source(searchSourceBuilder);
         SearchResponse response = esClient.search(request, RequestOptions.DEFAULT);
 
         System.out.println(response);
