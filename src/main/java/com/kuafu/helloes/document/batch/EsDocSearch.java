@@ -112,7 +112,6 @@ public class EsDocSearch {
 //        MaxAggregationBuilder boolQueryBuilder = AggregationBuilders.max("maxAge").field("age");
 //        searchSourceBuilder.aggregation(boolQueryBuilder);
 
-
         /**
          * 11、聚合查询 分组
          */
