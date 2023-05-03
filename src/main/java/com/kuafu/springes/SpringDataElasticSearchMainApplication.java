@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author juanwang
  * @create 2023/5/3 14:14
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.kuafu.springes"})
 public class SpringDataElasticSearchMainApplication {
 
     public static void main(String[] args) {

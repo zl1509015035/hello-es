@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.PostConstruct;
+
 /**
  * @author juanwang
  * @create 2023/5/3 14:28
@@ -15,17 +17,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/es")
 public class ProductController {
 
-
     @Autowired
     private ElasticsearchRestTemplate elasticsearchRestTemplate;
 
-    @PostMapping("/删除索引")
+    @PostMapping("/delete")
     public String deleteIndex() {
         if (elasticsearchRestTemplate.deleteIndex(Product.class)) {
             return "删除成功";
         }
         return "删除失败";
     }
+
+
 
 
 

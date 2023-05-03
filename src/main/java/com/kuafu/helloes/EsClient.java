@@ -15,7 +15,7 @@ public class EsClient {
 
     public static RestHighLevelClient getHighLevelClient(){
         //指定elastic search的ip和端口
-        HttpHost host= new HttpHost("127.0.0.1",39200,"http");
+        HttpHost host= new HttpHost("127.0.0.1",9200,"http");
         RestClientBuilder builder = RestClient.builder(host);
         //设置es 账户名和密码
         CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
